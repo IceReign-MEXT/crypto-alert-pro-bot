@@ -1,0 +1,39 @@
+# Exported from Render
+version: "1"
+services:
+- type: web
+  name: crypto-alert-pro-bot
+  runtime: python
+  repo: https://github.com/IceReign-MEXT/crypto-alert-pro-bot
+  plan: free
+  envVars:
+  - key: TELEGRAM_TOKEN
+    value: "8260238141:AAFbchRRqvnh6PTRKR3n15LrnXxASFbWn-k"
+  - key: PAYMENT_PROVIDER
+    value: "cryptomus"
+  - key: PAYMENT_GATEWAY_API_KEY
+    value: "your_coinbase_api_key"
+  - key: PAYMENT_GATEWAY_SECRET
+    value: "your_coinbase_secret"
+  - key: CRYPTOMUS_PAYMENT_KEY
+    value: "911eaa328eea6f2a518087ee36018ca154832ce0"
+  - key: CRYPTOMUS_PAYOUT_KEY
+    value: "6FJF6X23YHIDIs8ItLiK0yA9QY7sKr5qpXcbubzyoKtUx3CsP08z6JrPyMxXBxq..."
+  - key: CRYPTOMUS_WEBHOOK_URL
+    value: "https://crypto-alert-pro-bot.onrender.com/webhook"
+  - key: DATABASE_PATH
+    value: "bot.db"
+  - key: BTC_WALLET
+    value: "bc1qdcgw22j9a6zvg9avtrpfp2k0t2rdh9zmdgalps"
+  - key: ETH_WALLET
+    value: "0x08D171685e51bAf7a929cE8945CF25b3D1Ac9756"
+  - key: SOL_WALLET
+    value: "3JqvK1ZAt67nipBVgZj6zWvuT8icMWBMWyu5AwYnhVss"
+  - key: PORT
+    value: "5000"
+  region: oregon
+  buildCommand: pip install -r requirements.txt
+  startCommand: gunicorn -b 0.0.0.0:5000 wsgi:app
+  healthCheckPath: /healthz
+  autoDeployTrigger: commit
+  rootDir: ./
