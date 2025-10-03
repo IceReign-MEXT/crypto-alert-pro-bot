@@ -1,6 +1,22 @@
+# Telegram Bot framework
 python-telegram-bot==13.15
+
+# Scheduler (must match PTB 13.x requirements)
+APScheduler==3.6.3
+
+# Web framework for webhook + Render deployment
+Flask==2.2.5
+gunicorn==20.1.0
+
+# Networking
 requests==2.32.3
-flask==2.2.5
-apscheduler==3.6.3
+urllib3==1.26.20
+
+# Database ORM (optional but cleaner)
+SQLAlchemy==2.0.23
+
+# Environment variables loader
 python-dotenv==1.0.1
-gunicorn==21.2.0
+
+# Crypto / security utils (prebuilt wheels available, avoids Rust build issue)
+cryptography==41.0.7
