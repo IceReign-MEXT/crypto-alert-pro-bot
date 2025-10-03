@@ -1,3 +1,4 @@
+
 import sqlite3, time
 
 DB_NAME = "subscriptions.db"
